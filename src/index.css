@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-surface-dim: #10141a;
+  --color-surface-bright: #353940;
+  --color-surface-container: #1c2026;
+  --color-surface-variant: #31353c;
+  --color-on-surface: #dfe2eb;
+  --color-on-surface-variant: #cfc6ae;
+  --color-primary: #ffeebb;
+  --color-primary-container: #f4d03f;
+  --color-on-primary: #3b2f00;
+  --color-on-primary-container: #6c5900;
+  --color-background: #10141a;
+  --color-secondary-container: #3c475a;
+  
+  --radius-story: 20px;
+  --radius-card: 16pt;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-on-surface font-sans;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #0A0F1A;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[#1E2838]/90 backdrop-blur-2xl border border-white/5;
+  }
+  
+  .splash-glow {
+    background: radial-gradient(circle at 50% 30%, rgba(255, 233, 199, 0.3) 0%, transparent 70%);
+  }
+
+  .flashlight-beam {
+    background: linear-gradient(180deg, rgba(244, 208, 63, 0.08) 0%, rgba(244, 208, 63, 0.03) 50%, transparent 100%);
+    clip-path: polygon(40% 0, 60% 0, 100% 100%, 0% 100%);
+  }
+
+  .rain-gradient {
+    background: linear-gradient(to bottom, rgba(16, 20, 26, 0.4), rgba(16, 20, 26, 1));
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.1); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
